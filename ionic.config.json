@@ -1,0 +1,7 @@
+{
+  "name": "rxdb",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -13,6 +13,10 @@
  *
  * Learn more in https://angular.io/guide/browser-support
  */
+import './zone-flags';
+import '@babel/polyfill';
+import 'zone.js/dist/zone';
+import 'zone.js/dist/zone-patch-rxjs';
 
 /***************************************************************************************************
  * BROWSER POLYFILLS
@@ -52,14 +56,14 @@
  *
  */
 
-import './zone-flags';
-
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */
-import 'zone.js/dist/zone';  // Included with Angular CLI.
-
-
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+(window as any).global = window;
+(window as any).process = {
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  env: { DEBUG: undefined },
+};

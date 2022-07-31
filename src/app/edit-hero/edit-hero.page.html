@@ -1,0 +1,44 @@
+<!-- eslint-disable @angular-eslint/template/no-negated-async -->
+<ion-header [translucent]="true">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit Hero</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="alert" *ngIf="!synced">
+    <h4>Warning:</h4>
+    <p>Someone else has <b>changed</b> this document. If you click save, you will overwrite the changes.</p>
+    <button mat-raised-button color="primary" (click)=resync()>resync</button>
+  </div>
+
+  <div class="alert deleted" *ngIf="(heroDoc?.deleted$ | async)">
+    <h4>Error:</h4>
+    <p>Someone else has <b>deleted</b> this document. You can not save anymore.</p>
+  </div>
+
+  <form [formGroup]="heroForm" (ngSubmit)="editHero()" novalidate>
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input type="text" formControlName="name" autocomplete="off"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Color</ion-label>
+      <ion-input type="text" formControlName="color" autocomplete="off"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Max HP</ion-label>
+      <ion-input type="number" formControlName="maxHP" autocomplete="off"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>HP</ion-label>
+      <ion-input type="number" formControlName="hp" autocomplete="off"></ion-input>
+    </ion-item>
+    <div style="padding:16px;">
+      <ion-button expand="block" type="submit" [disabled]="heroForm.invalid">EDIT HERO
+      </ion-button>
+    </div>
+  </form>
+</ion-content>

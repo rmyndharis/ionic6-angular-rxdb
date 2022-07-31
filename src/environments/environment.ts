@@ -1,9 +1,14 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  COUCHDB_PORT: 2170,
+  HERO_COLLECTION_NAME: 'hero',
+  DATABASE_NAME: 'heroes',
+  IS_SERVER_SIDE_RENDERING: false,
 };
 
 /*

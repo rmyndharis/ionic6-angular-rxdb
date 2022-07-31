@@ -1,20 +1,38 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Blank
+      Home of Heroes
     </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button color="light" (click)="addHero()">
+        Add Hero
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-list>
+    <ion-list-header>
+      Hero Lists
+    </ion-list-header>
+    <ion-item-sliding *ngFor="let hero of heroes$ | async as heroes; index as i">
+      <ion-item (click)="editHero(hero)">
+        <ion-label>
+          <h3>
+            {{hero.name}} | {{hero.color}}
+          </h3>
+          <p>
+            {{displayHP(hero.maxHP)}} HP ({{displayHP(hero.hp)}}%)
+          </p>
+          <ion-progress-bar [value]="hero.maxHP/1000"></ion-progress-bar>
+          <ion-progress-bar [value]="hero.hp/100" color="danger"></ion-progress-bar>
+        </ion-label>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="danger">
+          <ion-icon slot="icon-only" name="trash" (click)="deleteHero(hero)"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>

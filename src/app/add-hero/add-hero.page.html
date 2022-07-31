@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add Hero</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="heroesForm" (ngSubmit)="addHero()" novalidate>
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input type="text" formControlName="name" autocomplete="off"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Color</ion-label>
+      <ion-input type="text" formControlName="color" autocomplete="off"></ion-input>
+    </ion-item>
+    <div style="padding-top:16px;">
+      <ion-button expand="block" type="submit" [disabled]="heroesForm.invalid">ADD HERO</ion-button>
+    </div>
+  </form>
+</ion-content>

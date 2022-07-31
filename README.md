@@ -1,12 +1,12 @@
 # ionic6-angular-rxdb
 # Ionic 6 Angular 14 with RxDB sample
 
-I've try to find working example of RXDB using the latest Ionic 6/Angular 14 but failed to found one.
-So, I creating this sample. Hope it will help you starting play RxDB with latest Ionic 6 and Angular 14.
+I've tried to find a working example of RxDB using the latest Ionic 6/Angular 14 but failed to find it.
+So, I made this example. Hope this will help you get started playing RxDB with the latest Ionic 6 and Angular 14.
 
 
 
-This is an example usage of RxDB with Ionic 6 Angular 14.
+This is an example usage of RxDB with Ionic 6 Angular 14 as sample on RxDB official repo.
 It implements a simple heroes-list which can be filled by the user.
 
 ## Try it out
